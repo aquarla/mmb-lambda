@@ -1,0 +1,10 @@
+.bundle/
+vendor/bundle
+
+mecab/
+
+.env
+
+*~
+
+function.zip
