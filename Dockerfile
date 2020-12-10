@@ -8,24 +8,6 @@ ENV MECAB_VERSION 0.996
 ENV IPADIC_VERSION 2.7.0-20070801
 ENV LIB_MECAB_DIR_NAME mecab
 
-# WORKDIR ${LAMBDA_PACKAGE_DIR}
-# RUN curl -L ${MECAB_SOURCE_URL} -o mecab.tar.gz 
-# RUN curl -L ${IPADIC_SOURCE_URL} -o mecab-ipadic.tar.gz
-# RUN tar -zxvf mecab.tar.gz && tar -zxvf mecab-ipadic.tar.gz
-
-# WORKDIR ${LAMBDA_PACKAGE_DIR}/mecab-${MECAB_VERSION}
-# RUN ls -al
-# RUN ./configure --prefix=${LAMBDA_PACKAGE_DIR}/${LIB_MECAB_DIR_NAME} --with-charset=utf8
-# RUN make && make install
-
-# WORKDIR ${LAMBDA_PACKAGE_DIR}/mecab-ipadic-${IPADIC_VERSION}
-# RUN ./configure --prefix=${LAMBDA_PACKAGE_DIR}/${LIB_MECAB_DIR_NAME} --with-charset=utf8 --with-mecab-config=${LAMBDA_PACKAGE_DIR}/${LIB_MECAB_DIR_NAME}/bin/mecab-config
-# RUN make && make install
-
-# WORKDIR ${LAMBDA_PACKAGE_DIR}
-# RUN bundle install --path=vendor/bundle
-# CMD zip -r ./function.zip ./*
-
 CMD sh -c 'cd ${LAMBDA_PACKAGE_DIR} && \
     curl -L ${MECAB_SOURCE_URL} -o mecab.tar.gz && \ 
     curl -L ${IPADIC_SOURCE_URL} -o mecab-ipadic.tar.gz && \
