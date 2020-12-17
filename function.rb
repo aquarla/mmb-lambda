@@ -46,5 +46,5 @@ def handler(event:, context:)
   # 投稿
   mastodon.post_status(toot)
 
-  { event: JSON.generate(event), context: JSON.generate(context.inspect) }
+  { statusCode: 200, body: JSON.generate('OK') }
 end
