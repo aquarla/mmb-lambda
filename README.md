@@ -1,4 +1,4 @@
-# Mastodon Marcov bot for AWS Lambda (mmb-lambda)
+# Mastodon Markov bot for AWS Lambda (mmb-lambda)
 
 ## これはなに？
 
