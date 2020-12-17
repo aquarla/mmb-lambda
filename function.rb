@@ -1,7 +1,6 @@
 # coding: utf-8
 require 'json'
 require 'net/https'
-require 'sanitize'
 require 'uri'
 
 ENV['MECAB_PATH'] = '/var/task/mecab/lib/libmecab.so'
