@@ -1,9 +1,11 @@
 # coding: utf-8
 require 'json'
-require 'natto'
 require 'net/https'
 require 'sanitize'
 require 'uri'
+
+ENV['MECAB_PATH'] = '/var/task/mecab/lib/libmecab.so'
+require 'natto'
 
 require './lib/dictionary'
 require './lib/mastodon_api'
