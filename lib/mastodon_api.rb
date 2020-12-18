@@ -29,7 +29,8 @@ class MastodonAPI
     do_get(account_statuses_url(account_id), { exclude_reblogs: 'true' }, @read_access_token)
   end
   
-  def post_status(status, visibility='unlisted')
+  def post_status(status, visibility)
+    visibility ||= 'unlisted'
     do_post(post_status_url, { access_token: @write_access_token, status: status, visibility: visibility })
   end
 
