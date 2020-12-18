@@ -40,7 +40,7 @@ AWS_ACCESS_KEY|Amazon S3アクセス用のアクセストークン|〇|本番環
 AWS_SECRET_ACCESS_KEY|Amazon S3アクセス用のシークレット|〇|本番環境では代わりにIAMロールにS3アクセス権限を付与する
 AWS_S3_BUCKET_NAME|データ保存に使用するAmazon S3のバケット名|〇|
 INTERVAL|トゥート取得間隔＆投稿間隔||デフォルトは10分
-
+VISIBILITY|トゥートの公開範囲||デフォルトは```unlisted```
 
 ###  MeCab、および必要となる各種Gemのインストール
 
@@ -80,6 +80,7 @@ READ_ACCESS_TOKEN|トゥートを取得するアカウントのアクセスト�
 WRITE_ACCESS_TOKEN|トゥートを投稿するアカウントのアクセストークン|〇|マストドン管理画面の「開発」→「新規アプリ」からトークンを生成する
 AWS_S3_BUCKET_NAME|データ保存に使用するAmazon S3のバケット名|〇|
 INTERVAL|トゥート取得間隔＆投稿間隔||デフォルトは10分
+VISIBILITY|トゥートの公開範囲||デフォルトは```unlisted```
 
 ### Lamdba実行用のIAMロールに、S3バケットへのアクセス権限を付与
 
