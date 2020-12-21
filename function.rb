@@ -11,9 +11,10 @@ require './lib/mastodon_api'
 
 def handler(event:, context:)
   mastodon = MastodonAPI.new({
-                             domain: ENV['DOMAIN'],
-                             read_access_token: ENV['READ_ACCESS_TOKEN'],
-                             write_access_token: ENV['WRITE_ACCESS_TOKEN'],
+                               read_domain: ENV['READ_DOMAIN'] || ENV['DOMAIN'],
+                               write_domain: ENV['WRITE_DOMAIN'] || ENV['DOMAIN'],
+                               read_access_token: ENV['READ_ACCESS_TOKEN'],
+                               write_access_token: ENV['WRITE_ACCESS_TOKEN'],
                              })
   # Lambdaの起動間隔(秒)
   interval = ENV['INTERVAL'].to_i || 600

@@ -2,8 +2,9 @@
 
 class MastodonAPI
   def initialize(params)
-    if params[:domain]
-      @domain = params[:domain]
+    if params[:read_domain] && params[:write_domain]
+      @read_domain = params[:read_domain]
+      @write_domain = params[:write_domain]
     else
       raise 'ドメインが指定されていません'
     end
@@ -36,15 +37,15 @@ class MastodonAPI
 
   private
   def verify_credentials_url
-    "https://#{@domain}/api/v1/accounts/verify_credentials"
+    "https://#{@read_domain}/api/v1/accounts/verify_credentials"
   end
 
   def account_statuses_url(account_id)
-    "https://#{@domain}/api/v1/accounts/#{account_id}/statuses"
+    "https://#{@read_domain}/api/v1/accounts/#{account_id}/statuses"
   end
 
   def post_status_url
-    "https://#{@domain}/api/v1/statuses"
+    "https://#{@write_domain}/api/v1/statuses"
   end
 
   def do_get(url, params, access_token)
