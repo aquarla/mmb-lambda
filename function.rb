@@ -17,7 +17,7 @@ def handler(event:, context:)
                                write_access_token: ENV['WRITE_ACCESS_TOKEN'],
                              })
   # Lambdaの起動間隔(秒)
-  interval = ENV['INTERVAL'].to_i || 600
+  interval = ENV['INTERVAL']&.to_i || 600
 
   # トゥート一覧取得
   account_info = mastodon.verify_credentials
