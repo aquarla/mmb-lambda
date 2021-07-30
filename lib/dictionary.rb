@@ -53,10 +53,13 @@ class Dictionary
     max_size.times do |n|
       break unless @dict[current]
       next_word = @dict[current].sample
-      sentence += next_word
+      # 形態素が英数字のみの場合は前後に半角スペースを挿入
+      sentence += next_word.match?(/\w+/) ? ' ' + next_word + ' ' : next_word
       current.shift
       current.append(next_word)
     end
+    # 連続した半角スペースをひとつにまとめる
+    sentence.gsub!(/ +/, ' ')
     sentence
   end
 end
