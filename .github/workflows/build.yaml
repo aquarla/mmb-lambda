@@ -1,0 +1,27 @@
+name: Build and download Lambda function package
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+
+      - name: Create deployment package
+        run: |
+          docker build -t mastodon-markov .
+          docker run --rm -v "$(pwd)":/var/task mastodon-markov
+
+      - name: Upload package to artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: lambda-function-package
+          path: ./function.zip
